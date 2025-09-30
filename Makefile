@@ -46,7 +46,6 @@ apply:
 		--tags "${ARGS}" \
 		--parallel 1 \
 		--continue-on-error \
-		--disable-safeguards=git \
 		--include-output-dependencies \
 		-- \
 		apply
