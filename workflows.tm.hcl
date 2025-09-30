@@ -35,3 +35,19 @@ script "plan" {
     ]
   }
 }
+
+script "apply" {
+  name        = "OpenTofu Plan"
+  description = "Run a plan locally with Terramate"
+
+  job {
+    commands = [
+      # if the .terraform folder doesn't exist, run tofu init
+      ["sh", "-c", "[ -d .terraform ] || tofu init"],
+      ["tofu", "apply", "-input=false", "-auto-approve", "-lock-timeout=5m", {
+        enable_sharing = true
+        mock_on_fail   = true
+      }],
+    ]
+  }
+}

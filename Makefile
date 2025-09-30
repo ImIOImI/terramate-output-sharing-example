@@ -5,7 +5,7 @@ MAKEFILE_PATH := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 KNOWN_TARGETS := init \
 	init-upgrade \
 	plan \
-	plan-fast \
+	apply \
 
 .PHONY: $(KNOWN_TARGETS)
 
@@ -40,6 +40,16 @@ plan:
 		--include-output-dependencies \
 		-- \
 		plan
+
+apply:
+	terramate script run \
+		--tags "${ARGS}" \
+		--parallel 1 \
+		--continue-on-error \
+		--disable-safeguards=git \
+		--include-output-dependencies \
+		-- \
+		apply
 
 # Catch-all target to prevent errors when extra words are passed.
 %:
