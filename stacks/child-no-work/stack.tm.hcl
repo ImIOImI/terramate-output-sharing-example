@@ -1,11 +1,11 @@
 stack {
-  name        = "child"
+  name        = "child-no-work"
   description = "I output the pet name from the parent"
-  id          = "ee0940f9-717b-439f-895d-398c55a61972"
+  id          = "18ae3989-05d8-4cc2-9abb-8ce27be96cca"
 
   tags = [
     "pet",
     "child",
-    "works",
+    "broken",
   ]
 }
