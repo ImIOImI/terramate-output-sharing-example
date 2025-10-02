@@ -6,6 +6,8 @@ stack {
   tags = [
     "pet",
     "parent",
+    "works",
+    "broken",
   ]
 
   before = [
